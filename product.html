@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Product , UneedIndia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Karla:wght@300;400;500;600&family=Allura&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<header class="site-header"></header>
+
+<section>
+ <div class="container">
+ <div id="pd-root"></div>
+ </div>
+</section>
+
+<section class="section" style="background:var(--cream)">
+ <div class="container">
+ <p class="eyebrow text-center">You might also love</p>
+ <h2 class="section-title text-center mt-4 mb-16">More from the shelf</h2>
+ <div class="prod-grid" id="related"></div>
+ </div>
+</section>
+
+<footer class="site-footer"></footer>
+<div class="sticky-cta"></div>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/app.js"></script>
+<script>
+ const id = new URLSearchParams(location.search).get("id");
+ const p = getProduct(id);
+ const root = document.getElementById("pd-root");
+ const fmt = n => "₹" + Number(n).toLocaleString("en-IN");
+ if (!p){
+ root.innerHTML = `<div class="page-head"><h1>Piece not found</h1><p>It may have been retired. <a href="shop.html" style="color:var(--rose)">Browse the shelf →</a></p></div>`;
+ } else {
+ document.title = `${p.name} , UneedIndia`;
+ const gallery = p.gallery && p.gallery.length ? p.gallery : [p.image];
+ root.innerHTML = `
+ <div class="pd-grid">
+ <div class="pd-gallery">
+ <button class="pd-main" id="pd-main"><img src="${IMG(gallery[0])}" alt="${p.name}" id="pd-main-img"></button>
+ <div class="pd-thumbs" id="pd-thumbs">
+ ${gallery.map((n,i)=>`<button class="${i===0?'active':''}" data-i="${i}" data-n="${n}"><img src="${IMG(n)}" alt=""></button>`).join("")}
+ </div>
+ </div>
+ <div class="pd-info reveal">
+ <p class="eyebrow">${p.category}</p>
+ <h1>${p.name}</h1>
+ <p class="price">${fmt(p.price)}</p>
+ <p class="story">${p.story}</p>
+ <ul class="details">${p.details.map(d=>`<li>${d}</li>`).join("")}</ul>
+ <div class="pd-cta">
+ <button class="btn btn-primary" id="add">Add to cart</button>
+ <a class="btn btn-whatsapp" id="wa" target="_blank" rel="noreferrer">Chat on WhatsApp</a>
+ </div>
+ </div>
+ </div>`;
+ const mainImg = document.getElementById("pd-main-img");
+ document.getElementById("pd-main").onclick = () => openLightbox(mainImg.src, p.name);
+ document.querySelectorAll("#pd-thumbs button").forEach(btn => {
+ btn.onclick = () => {
+ mainImg.src = IMG(btn.dataset.n);
+ document.querySelectorAll("#pd-thumbs button").forEach(b=>b.classList.remove("active"));
+ btn.classList.add("active");
+ };
+ });
+ document.getElementById("add").onclick = () => { Cart.add(p.id,1); openCart(); };
+ document.getElementById("wa").href = waLink(buildProductMessage(p,1));
+ const rel = document.getElementById("related");
+ PRODUCTS.filter(x => x.category === p.category && x.id !== p.id).slice(0,4).forEach(x => rel.appendChild(renderProductCard(x)));
+ }
+ setupReveal();
+</script>
+</body>
+</html>

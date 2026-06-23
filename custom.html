@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Custom Orders , UneedIndia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Karla:wght@300;400;500;600&family=Allura&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+<style>
+ .cat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1rem;margin-top:1.5rem}
+ .cat-chip{cursor:pointer;border:1.5px solid #e8d8df;background:#fff;border-radius:18px;padding:1.25rem 1rem;text-align:center;transition:all .25s ease;font-family:var(--font-display);font-size:1.1rem;color:var(--ink)}
+ .cat-chip:hover{border-color:var(--rose);transform:translateY(-2px);box-shadow:0 8px 24px rgba(217,121,143,.15)}
+ .cat-chip.active{background:linear-gradient(135deg,#fff5f8,#ffe8ef);border-color:var(--rose);color:var(--rose);box-shadow:0 6px 20px rgba(217,121,143,.2)}
+ .cat-chip .ico{display:block;font-size:1.6rem;margin-bottom:.4rem}
+ .img-drop{border:2px dashed #e8c8d4;border-radius:18px;padding:2rem 1rem;text-align:center;background:#fffafc;cursor:pointer;transition:all .25s ease}
+ .img-drop:hover{border-color:var(--rose);background:#fff5f8}
+ .img-drop input{display:none}
+ .img-preview{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1rem}
+ .img-preview .pv{position:relative;width:90px;height:90px;border-radius:12px;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,.08)}
+ .img-preview .pv img{width:100%;height:100%;object-fit:cover}
+ .img-preview .pv button{position:absolute;top:4px;right:4px;width:22px;height:22px;border-radius:50%;border:none;background:rgba(0,0,0,.6);color:#fff;cursor:pointer;font-size:.8rem;line-height:1}
+ .form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+ @media(max-width:600px){.form-row{grid-template-columns:1fr}}
+ .wa-note{font-size:.85rem;color:var(--clay);margin-top:.5rem;padding:.75rem 1rem;background:#fff8f0;border-left:3px solid var(--rose);border-radius:8px}
+</style>
+</head>
+<body>
+<header class="site-header"></header>
+
+<section class="bg-gradient-blush grain" style="padding:9rem 0 5rem">
+ <div class="container-sm text-center reveal">
+ <p class="eyebrow">Just for you</p>
+ <h1 style="font-size:4rem;margin-top:1rem;line-height:1.02">Custom <span class="italic" style="color:var(--rose)">orders.</span></h1>
+ <p style="margin:1.5rem auto 0;max-width:36rem;color:var(--clay);line-height:1.7">Tell us what you want, share a picture, and chat with us on WhatsApp. </p>
+ </div>
+</section>
+
+<section class="section" style="background:var(--cream)">
+ <div class="container-sm">
+ <div class="reveal text-center mb-16">
+ <p class="eyebrow">Start your brief</p>
+ <h2 class="section-title mt-4">Tell us what you're imagining.</h2>
+ <p style="margin-top:1rem;color:var(--clay)">Pick a category, describe it, drop a reference picture - we'll take it from there.</p>
+ </div>
+
+ <form class="form reveal" id="custom-form">
+
+ 
+
+ <div class="form-row">
+ <div><label>1. Your name</label><input required name="name" placeholder="Aanya R."></div>
+ </div>
+
+ <div>
+ <label>3. Describe what you want</label>
+ <textarea required name="notes" rows="4" placeholder="What would you like &amp; What's your inspiration"></textarea>
+ </div>
+
+ 
+ 
+ <div>
+ <label>4.Don't foget to share your refernce reference picture on whatsapp.</label>
+ 
+ </div>
+
+ <button type="submit" class="btn btn-primary" style="justify-content:center;margin-top:1rem;background:linear-gradient(135deg,#e89bb0,#d9798f);border:none;color:#fff;box-shadow:0 8px 24px rgba(217,121,143,.3)">
+ Send &amp; chat on WhatsApp
+ </button>
+ <p class="wa-note">When you tap Send, WhatsApp will open with your details pre-filled and ready to send.
+If you have any reference picture(s), please attach them separately on WhatsApp before sending your message.
+</p>
+ </form>
+ </div>
+</section>
+
+<section class="section">
+ <div class="container-sm">
+ <div class="editorial">
+ <div class="reveal">
+ <p class="eyebrow">How it works</p>
+ <h2 class="section-title mt-4">A short, gentle process.</h2>
+ </div>
+ <div class="reveal">
+ <ol style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:2rem">
+ <li><strong style="font-family:var(--font-display);font-size:1.75rem;color:var(--rose)">01.</strong>
+ <h3 style="font-size:1.5rem;margin:.5rem 0">Tell us your story</h3>
+ <p style="color:var(--clay);line-height:1.7">Fill the brief above and share a picture , we chat with you on WhatsApp.</p></li>
+ <li><strong style="font-family:var(--font-display);font-size:1.75rem;color:var(--rose)">02.</strong>
+ <h3 style="font-size:1.5rem;margin:.5rem 0">We sketch &amp; quote</h3>
+ <p style="color:var(--clay);line-height:1.7">Within 48 hours you'll see a sketch, materials, lead time and total , confirmed before we begin.</p></li>
+ <li><strong style="font-family:var(--font-display);font-size:1.75rem;color:var(--rose)">03.</strong>
+ <h3 style="font-size:1.5rem;margin:.5rem 0">Stitched &amp; sent</h3>
+ <p style="color:var(--clay);line-height:1.7">10 to 14 days later, your piece arrives wrapped in linen with a handwritten note.</p></li>
+ </ol>
+ </div>
+ </div>
+ </div>
+</section>
+
+<footer class="site-footer"></footer>
+<div class="sticky-cta"></div>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/app.js"></script>
+<script>
+ // Submit -> WhatsApp
+document.getElementById("custom-form").addEventListener("submit", e => {
+ e.preventDefault();
+
+ const f = new FormData(e.target);
+
+ const msg = [
+ "Hello Uneed India ✨",
+ "",
+ "I'd like to start a custom order:",
+ "",
+ `• Name: ${f.get("name")}`,
+ `• Description: ${f.get("notes")}`,
+ "",
+ "Looking forward to hearing from you 🌸"
+ ].join("\n");
+
+ window.open(waLink(msg), "_blank");
+});
+
+ 
+
+ // Submit -> WhatsApp
+ document.getElementById("custom-form").addEventListener("submit", async e => {
+ e.preventDefault();
+ 
+ const f = new FormData(e.target);
+ const lines = [
+ "Hello Uneed India ✨", "",
+ "I'd like to start a custom order:", "",
+ `• Category: ${f.get("category")}`,
+ `• Name: ${f.get("name")}`,
+ ];
+ 
+ lines.push(`• Description: ${f.get("notes")}`);
+ 
+ lines.push("", "Looking forward to hearing from you 🌸");
+ const msg = lines.join("\n");
+
+ // Try Web Share API with files (mobile) so picture goes too
+ if (pickedFiles.length && navigator.canShare && navigator.canShare({ files: pickedFiles })) {
+ try {
+ await navigator.share({ files: pickedFiles, text: msg, title: "Custom order , Uneed India" });
+ return;
+ } catch (err) { /* fall through to wa.me */ }
+ }
+ window.open(waLink(msg), "_blank");
+ });
+</script>
+</body>
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Bouquets - UneedIndia</title>
+
+ <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar">
+ <h1 class="logo">UneedIndia</h1>
+
+ <nav>
+ <a href="index.html">Home</a>
+ <a href="index.html#categories">Categories</a>
+ <a href="review.html">Reviews</a>
+ <a href="contact.html">Contact</a>
+
+ <!-- 🛒 CART -->
+ <a href="cart.html" class="cart-icon">
+ 🛒 <span id="cart-count">0</span>
+ </a>
+ </nav>
+</header>
+
+<!-- PRODUCTS -->
+<section class="products bouquet-page">
+ <h2>Bouquets</h2>
+
+ <div class="product-grid">
+
+ <!-- ITEM 1 -->
+ <div class="product">
+ <img src="pictures/img1.jpeg">
+ <h3>Sunflower Heart Bouquet</h3>
+ <p class="price">₹920</p>
+ <button onclick="addToCart('Sunflower Heart Bouquet',920,'pictures/img1.jpeg')">
+ Add to Cart
+ </button>
+ </div>
+
+ <!-- ITEM 2 -->
+ <div class="product">
+ <img src="pictures/img2.jpeg">
+ <h3>Bunch of Forever Flowers</h3>
+ <p class="price">₹1550</p>
+ <button onclick="addToCart('Bunch of Forever Flowers',1550,'pictures/img2.jpeg')">
+ Add to Cart
+ </button>
+ </div>
+
+ <!-- ITEM 3 -->
+ <div class="product">
+ <img src="pictures/img22.jpeg">
+ <h3>Red Bouquet</h3>
+ <p class="price">₹850</p>
+ <button onclick="addToCart('Red Bouquet',850,'pictures/img22.jpeg')">
+ Add to Cart
+ </button>
+ </div>
+
+ <!-- ITEM 4 -->
+ <div class="product">
+ <img src="pictures/img7.jpeg">
+ <h3>Pastel Bouquet</h3>
+ <p class="price">₹980</p>
+ <button onclick="addToCart('Pastel Bouquet',980,'pictures/img7.jpeg')">
+ Add to Cart
+ </button>
+ </div>
+
+ <!-- ITEM 5 -->
+ <div class="product">
+ <img src="pictures/img5.jpeg">
+ <h3>Pink Flowers</h3>
+ <p class="price">₹749</p>
+ <button onclick="addToCart('Pink Flowers',749,'pictures/img5.jpeg')">
+ Add to Cart
+ </button>
+ </div>
+
+ <!-- ITEM 6 -->
+ <div class="product">
+ <img src="pictures/img6.jpeg">
+ <h3>Sunflower Bouquet</h3>
+ <p class="price">₹255</p>
+ <button onclick="addToCart('Sunflower Bouquet',255,'pictures/img6.jpeg')">
+ Add to Cart
+ </button>
+ </div>
+
+ </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+ <div class="footer-content">
+
+ <h2 class="footer-logo">UneedIndia</h2>
+
+ <p class="footer-tagline">
+ The Unique You Need
+ </p>
+
+ <div class="footer-links">
+ <a href="index.html">Home</a>
+ <a href="index.html#categories">Shop</a>
+ <a href="review.html">Reviews</a>
+ <a href="contact.html">Contact</a>
+ </div>
+
+ <p class="footer-note">
+ © 2026 UneedIndia | All rights reserved
+ </p>
+
+ </div>
+</footer>
+
+<!-- JS -->
+<script src="script.js"></script>
+
+<div id="popup" style="
+ display:none;
+ position:fixed;
+ top:0;
+ left:0;
+ width:100%;
+ height:100%;
+ background:rgba(0,0,0,0.9);
+ justify-content:center;
+ align-items:center;
+ z-index:9999;
+">
+ <img id="popup-img" style="max-width:90%; max-height:90%; border-radius:10px;">
+</div>
+</body>
+</html>

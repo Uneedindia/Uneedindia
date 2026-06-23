@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Your Cart - UneedIndia</title>
+
+ <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar">
+ <h1 class="logo">UneedIndia</h1>
+
+ <nav>
+ <a href="index.html">Home</a>
+ <a href="index.html#categories">Categories</a>
+ <a href="review.html">Reviews</a>
+ <a href="contact.html">Contact</a>
+
+ <a href="cart.html" class="cart-icon">
+ 🛒 <span id="cart-count">0</span>
+ </a>
+ </nav>
+</header>
+
+<!-- 🛒 CART -->
+<section class="cart-page">
+ <h2>Your Cart 🛒</h2>
+
+ <!-- ITEMS -->
+ <div id="cart-items" class="cart-items"></div>
+
+ <!-- TOTAL -->
+ <h3 id="total" class="cart-total"></h3>
+
+ <!-- PAYMENT -->
+ <div class="payment-box">
+
+ <p class="payment-title">Pay via UPI</p>
+ <p class="upi-id">palkish04@oksbi</p>
+
+ <!-- BUTTON -->
+ <button type="button" class="place-order-btn" onclick="sendWhatsAppMessage()">
+ Place Order 
+ </button>
+
+ <!-- NOTE -->
+ <p class="note">
+ After payment, please share your details and payment screenshot on WhatsApp 💖
+ </p>
+
+ </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+ <div class="footer-content">
+
+ <h2 class="footer-logo">UneedIndia</h2>
+
+ <p class="footer-tagline">
+ The Unique You Need
+ </p>
+
+ <div class="footer-links">
+ <a href="index.html">Home</a>
+ <a href="index.html#categories">Shop</a>
+ <a href="review.html">Reviews</a>
+ <a href="contact.html">Contact</a>
+ </div>
+
+ <p class="footer-note">
+ © 2026 UneedIndia | All rights reserved
+ </p>
+
+ </div>
+</footer>
+
+<!-- JS -->
+<script src="script.js"></script>
+
+</body>
+</html>

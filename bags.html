@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Bags - UneedIndia</title>
+
+ <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar">
+ <h1 class="logo">UneedIndia</h1>
+
+ <nav>
+ <a href="index.html">Home</a>
+ <a href="index.html#categories">Categories</a>
+ <a href="review.html">Reviews</a>
+ <a href="contact.html">Contact</a>
+
+ <!-- 🛒 CART -->
+ <a href="cart.html" class="cart-icon">
+ 🛒 <span id="cart-count">0</span>
+ </a>
+ </nav>
+</header>
+
+<!-- PRODUCTS -->
+<section class="products bags-page">
+ <h2>Bags</h2>
+
+ <div class="product-grid">
+
+ <!-- ITEM 1 -->
+ <div class="product">
+ <img src="pictures/img19.jpeg"class="click-img">
+ <p class="price">₹1899</p>
+ <button onclick="addToCart('Pearl Blush',1899,'pictures/img19.jpeg')">
+ Add to Cart
+ </button>
+ </div>
+
+ <!-- ITEM 2 -->
+ <div class="product">
+ <img src="pictures/img21.jpeg"class="click-img">
+ <h3>Bold in Beige</h3>
+ <p class="price">₹2199</p>
+ <button onclick="addToCart('Bold in Beige',2199,'pictures/img21.jpeg')">
+ Add to Cart
+ </button>
+ </div>
+
+ <!-- ITEM 3 -->
+ <div class="product">
+ <img src="pictures/img20.jpeg"class="click-img">
+ <h3>Hot Pink Crochet Bag</h3>
+ <p class="price">₹2699</p>
+ <button onclick="addToCart('Hot Pink Crochet Bag',2699,'pictures/img20.jpeg')">
+ Add to Cart
+ </button>
+ </div>
+
+ </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+ <div class="footer-content">
+
+ <h2 class="footer-logo">UneedIndia</h2>
+
+ <p class="footer-tagline">
+ The Unique You Need
+ </p>
+
+ <div class="footer-links">
+ <a href="index.html">Home</a>
+ <a href="index.html#categories">Shop</a>
+ <a href="review.html">Reviews</a>
+ <a href="contact.html">Contact</a>
+ </div>
+
+ <p class="footer-note">
+ © 2026 UneedIndia | All rights reserved
+ </p>
+
+ </div>
+</footer>
+
+<!-- JS -->
+<script src="script.js"></script>
+
+<div id="popup" style="
+ display:none;
+ position:fixed;
+ top:0;
+ left:0;
+ width:100%;
+ height:100%;
+ background:rgba(0,0,0,0.9);
+ justify-content:center;
+ align-items:center;
+ z-index:9999;
+">
+ <img id="popup-img" style="max-width:90%; max-height:90%; border-radius:10px;">
+</div>
+
+</body>
+</html>

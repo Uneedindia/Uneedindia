@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Shop , UneedIndia</title>
+<meta name="description" content="The full collection: handmade crochet bouquets, bags, keychains, gloves, hair accessories and custom keepsakes.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Karla:wght@300;400;500;600&family=Allura&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<header class="site-header"></header>
+
+<section class="bg-gradient-blush grain" style="padding:9rem 0 4rem">
+ <div class="container-sm text-center">
+ <div class="reveal">
+ <p class="eyebrow">The collection</p>
+ <h1 style="font-size:4rem;margin-top:1rem;line-height:1.02">Everything we <span class="italic">stitch.</span></h1>
+ <p style="margin:1.5rem auto 0;max-width:32rem;color:var(--clay);line-height:1.7">Browse by category, or scroll below to explore the full collection.</p>
+ <div class="chips" id="chips"></div>
+ </div>
+ </div>
+</section>
+
+<section class="section">
+ <div class="container">
+ <div class="prod-grid" id="shop-grid"></div>
+ </div>
+</section>
+
+<footer class="site-footer"></footer>
+<div class="sticky-cta"></div>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/app.js"></script>
+<script>
+ document.getElementById("chips").innerHTML = CATEGORIES.map(c =>
+ `<a href="category.html?slug=${c.slug}">${c.name}</a>`).join("");
+ const g = document.getElementById("shop-grid");
+ PRODUCTS.forEach(p => g.appendChild(renderProductCard(p)));
+ setupReveal();
+</script>
+</body>
+</html>
