@@ -63,7 +63,7 @@
  "I have completed payment.","", `UPI ID:\n${window.UPI_ID}`,"",
  "Payment screenshot attached.","","Please confirm my order.","","Thank you."
  ].join("\n");
- window.customOrderWA = () => window.waLink("Hello Uneed India,\n\nI would like to place a custom crochet order. I'd love to discuss colours, design and size.\n\nThank you.");
+ window.customOrderWA = () => window.waLink("Hello Uneed India,\n\nI would like to place a crochet order. I'd love to discuss colours, design and size.\n\nThank you.");
 
  // ---------- HEADER ----------
  function renderHeader(){
