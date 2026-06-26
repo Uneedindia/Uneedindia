@@ -1,86 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
- <meta charset="UTF-8">
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <title>Your Cart - UneedIndia</title>
-
- <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Your basket , UneedIndia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Karla:wght@300;400;500;600&family=Allura&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
 </head>
-
 <body>
+<header class="site-header"></header>
 
-<!-- NAVBAR -->
-<header class="navbar">
- <h1 class="logo">UneedIndia</h1>
-
- <nav>
- <a href="index.html">Home</a>
- <a href="index.html#categories">Categories</a>
- <a href="review.html">Reviews</a>
- <a href="contact.html">Contact</a>
-
- <a href="cart.html" class="cart-icon">
- 🛒 <span id="cart-count">0</span>
- </a>
- </nav>
-</header>
-
-<!-- 🛒 CART -->
-<section class="cart-page">
- <h2>Your Cart 🛒</h2>
-
- <!-- ITEMS -->
- <div id="cart-items" class="cart-items"></div>
-
- <!-- TOTAL -->
- <h3 id="total" class="cart-total"></h3>
-
- <!-- PAYMENT -->
- <div class="payment-box">
-
- <p class="payment-title">Pay via UPI</p>
- <p class="upi-id">palkish04@oksbi</p>
-
- <!-- BUTTON -->
- <button type="button" class="place-order-btn" onclick="sendWhatsAppMessage()">
- Place Order 
- </button>
-
- <!-- NOTE -->
- <p class="note">
- After payment, please share your details and payment screenshot on WhatsApp 💖
- </p>
-
- </div>
+<section class="page-head">
+  <div class="container-sm">
+    <p class="eyebrow">Your basket</p>
+    <h1>Ready when you are.</h1>
+    <p>Review your pieces, then head to checkout to pay over UPI.</p>
+  </div>
 </section>
 
-<!-- FOOTER -->
-<footer class="footer">
- <div class="footer-content">
+<section style="padding-bottom:5rem">
+  <div class="container" id="cart-root"></div>
+</section>
 
- <h2 class="footer-logo">UneedIndia</h2>
+<footer class="site-footer"></footer>
+<div class="sticky-cta"></div>
 
- <p class="footer-tagline">
- The Unique You Need
- </p>
-
- <div class="footer-links">
- <a href="index.html">Home</a>
- <a href="index.html#categories">Shop</a>
- <a href="review.html">Reviews</a>
- <a href="contact.html">Contact</a>
- </div>
-
- <p class="footer-note">
- © 2026 UneedIndia | All rights reserved
- </p>
-
- </div>
-</footer>
-
-<!-- JS -->
-<script src="script.js"></script>
-
+<script src="assets/js/data.js"></script>
+<script src="assets/js/app.js"></script>
+<script>
+  const fmt = n => "₹" + Number(n).toLocaleString("en-IN");
+  function render(){
+    const root = document.getElementById("cart-root");
+    const d = Cart.detailed();
+    if (!d.length){
+      root.innerHTML = `<div style="text-align:center;padding:3rem 0">
+        <h2 style="font-family:var(--font-display);font-size:2rem">Nothing here yet.</h2>
+        <p style="margin:1rem 0 2rem;color:var(--clay)">Wander the shelves , every piece is hand-stitched.</p>
+        <a href="shop.html" class="btn btn-primary">Browse the collection</a>
+      </div>`; return;
+    }
+    root.innerHTML = `
+      <div style="display:grid;gap:1rem;margin-bottom:2rem">
+        ${d.map(({product:p,qty,line})=>`
+          <div style="display:flex;gap:1rem;padding:1rem;background:var(--cream);border:1px solid var(--border);border-radius:6px;align-items:center">
+            <a href="product.html?id=${p.id}"><img src="${IMG(p.image)}" alt="${p.name}" style="width:90px;height:90px;object-fit:cover;border-radius:4px"></a>
+            <div style="flex:1">
+              <a href="product.html?id=${p.id}" style="font-family:var(--font-display);font-size:1.2rem;color:var(--ink);text-decoration:none">${p.name}</a>
+              <p style="font-size:.85rem;color:var(--clay);text-transform:uppercase;letter-spacing:1px">${p.category}</p>
+              <div style="display:flex;gap:1rem;align-items:center;margin-top:.5rem">
+                <div class="qty-pill"><button data-dec="${p.id}">−</button><span>${qty}</span><button data-inc="${p.id}">+</button></div>
+                <strong>${fmt(line)}</strong>
+                <button data-rem="${p.id}" style="margin-left:auto;background:none;border:none;color:var(--clay);cursor:pointer">Remove</button>
+              </div>
+            </div>
+          </div>`).join("")}
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid var(--border);padding-top:1.5rem;margin-bottom:1.5rem">
+        <span class="eyebrow">Subtotal</span>
+        <span style="font-family:var(--font-display);font-size:2rem">${fmt(Cart.subtotal())}</span>
+      </div>
+      <div style="display:flex;gap:.75rem;flex-wrap:wrap;justify-content:center">
+        <a href="checkout.html" class="btn btn-primary">Proceed to checkout →</a>
+        <a href="shop.html" class="btn btn-outline">Keep browsing</a>
+      </div>`;
+    root.querySelectorAll("[data-inc]").forEach(b=>b.onclick=()=>{const id=b.dataset.inc;const it=Cart.items.find(i=>i.id===id);Cart.setQty(id,(it?.qty||0)+1);});
+    root.querySelectorAll("[data-dec]").forEach(b=>b.onclick=()=>{const id=b.dataset.dec;const it=Cart.items.find(i=>i.id===id);Cart.setQty(id,(it?.qty||0)-1);});
+    root.querySelectorAll("[data-rem]").forEach(b=>b.onclick=()=>Cart.remove(b.dataset.rem));
+  }
+  Cart.on(render);
+</script>
 </body>
 </html>
